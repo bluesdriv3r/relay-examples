@@ -39,9 +39,14 @@ module.exports = {
         publicPath: "/assets",
       },
     ],
-    proxy: {
-      "/api": "http://localhost:8080",
-    },
+    proxy: [
+      {
+        context: ["/api"],
+        target: "http://localhost:8080",
+        changeOrigin: true,
+        secure: false,
+      },
+    ],
     port: 3000,
     historyApiFallback: true,
   },
